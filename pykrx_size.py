@@ -4,7 +4,11 @@ import datetime as dt
 from pykrx import stock
 from dateutil.relativedelta import relativedelta
 
-period=[dt.datetime(2011,2,7)]
+period=[]
+begin=dt.datetime(2010,1,7)
+while begin < dt.datetime(2012,3,1):
+    period.append(begin)
+    begin=begin+relativedelta(months=1)
 
 
 size_factor=pd.DataFrame()
@@ -27,3 +31,6 @@ for a in period:
     print(a)
 
 size_factor.to_csv('test_3.csv')
+
+
+    
